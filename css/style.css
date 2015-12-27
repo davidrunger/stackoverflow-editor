@@ -54,10 +54,14 @@ button#copy-to-clipboard:hover {
 }
 
 #wmd-preview code {
-  display: block;
-  padding: 5px;
+  padding: 1px 4px;
   background: #eee;
   font-size: 110%;
+}
+
+#wmd-preview pre code {
+  padding: 5px;
+  display: block;
 }
 
 @media (min-width: 800px) {
