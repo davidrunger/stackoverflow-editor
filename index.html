@@ -4,15 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stack Overflow Editor</title>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/editor.css">
+  <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="js/vendor/Markdown.Converter.js"></script>
   <script type="text/javascript" src="js/vendor/Markdown.Sanitizer.js"></script>
   <script type="text/javascript" src="js/vendor/Markdown.Editor.js"></script>
   <script type="text/javascript" src="js/vendor/clipboard.min.js"></script>
   <script type="text/javascript" src="js/github-to-so.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
   <div class="wmd-panel">
@@ -24,17 +22,18 @@ Do you hate having to indent your Stack Overflow code with four spaces?
 
 ***I do!***
 
-Instead, prepare your answer using this editor, and indicate code blocks using
-backticks! Like this:
+Instead, prepare your answer using this editor, and indicate code blocks
+using backticks! Like this:
 
 ```
 [1, 2, 3].map { |x| x**2 }
 puts "the #{solution}"
 ```
 
-Then, when you click the button below, we'll automatically transform your
-backtick-delimited codeblocks to space-indented codeblocks and copy that to your
-clipboard. Paste that into Stack Overflow, and you're done!</textarea>
+Then, when you click the button below, we'll automatically transform
+your backtick-delimited codeblocks to space-indented codeblocks and copy
+that to your clipboard. Paste that into Stack Overflow, and you're
+done!</textarea>
   </div>
 
   <div id="wmd-preview" class="wmd-panel wmd-preview">

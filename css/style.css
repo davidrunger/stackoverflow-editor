@@ -21,3 +21,26 @@ button#copy-to-clipboard:hover {
 .icon {
   margin-left: 8px;
 }
+
+.wmd-panel {
+  width: 50%;
+  min-width: 550px;
+  margin: 0 auto;
+}
+
+#wmd-input {
+  font-size: 12.5px;
+  font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
+}
+
+
+@media (min-width: 800px) {
+  .wmd-panel {
+    width: 640px;
+    margin: 0 auto;
+  }
+
+  #wmd-input {
+    font-size: 14px;
+  }
+}
