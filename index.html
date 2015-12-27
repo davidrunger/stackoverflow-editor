@@ -6,6 +6,10 @@
   <title>Stack Overflow Editor</title>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <script type="text/javascript" src="js/Markdown.Converter.js"></script>
+  <script type="text/javascript" src="js/Markdown.Sanitizer.js"></script>
+  <script type="text/javascript" src="js/Markdown.Editor.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
@@ -17,5 +21,49 @@
     indicated by indenting every line by four spaces).
 
   </p>
+
+  <div class="wmd-panel">
+    <div id="wmd-button-bar">
+    </div>
+
+    <textarea class="wmd-input" id="wmd-input">
+This is the *first* editor.
+------------------------------
+
+Just plain **Markdown**, except that the input is sanitized:
+
+<marquee>I'm the ghost from the past!</marquee>
+
+and that it implements "fenced blockquotes" via a plugin:
+
+"""
+Do it like this:
+
+1. Have idea.
+2. ???
+3. Profit!
+"""
+    </textarea>
+  </div>
+
+  <div id="wmd-preview" class="wmd-panel wmd-preview">
+  </div>
+
+  <script type="text/javascript">
+    (function () {
+      var converter = Markdown.getSanitizingConverter();
+
+      converter.hooks.chain("preBlockGamut", function (text, rbg) {
+        return text.replace(/^ {0,3}""".*\n((?:.*?\n)+?) {0,3}""" *$/gm, function (whole, inner) {
+          return "<code>" + rbg(inner) + "</code>\n";
+        });
+      });
+
+      var editor1 = new Markdown.Editor(converter);
+
+      editor1.run();
+    })();
+  </script>
+
 </body>
 </html>
