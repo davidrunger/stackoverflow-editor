@@ -2,6 +2,16 @@ body {
   margin-top: 20px;
 }
 
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 9px auto;
+  padding: 0;
+  width: 550px;
+}
+
 button#copy-to-clipboard {
   display: flex;
   align-items: center;
@@ -12,6 +22,8 @@ button#copy-to-clipboard {
   background: #F48024;
   border: none;
   border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 button#copy-to-clipboard:hover {
@@ -33,6 +45,20 @@ button#copy-to-clipboard:hover {
   font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
 }
 
+#wmd-preview p:first-child {
+  margin-top: 0;
+}
+
+#wmd-preview {
+  font-size: 90%;
+}
+
+#wmd-preview code {
+  display: block;
+  padding: 5px;
+  background: #eee;
+  font-size: 110%;
+}
 
 @media (min-width: 800px) {
   .wmd-panel {
@@ -42,5 +68,9 @@ button#copy-to-clipboard:hover {
 
   #wmd-input {
     font-size: 14px;
+  }
+
+  hr {
+    width: 640px;
   }
 }
