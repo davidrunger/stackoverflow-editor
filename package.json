@@ -1,0 +1,10 @@
+{
+  "name": "stackoverflow-editor",
+  "version": "0.0.1",
+  "description": "Write answer with GitHub-flavored markdown. Convert that to Stack Overflow-flavored markdown.",
+  "scripts": {
+    "test": "mocha ./test/index.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
