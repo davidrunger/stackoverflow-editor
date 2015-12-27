@@ -14,36 +14,29 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
-  <p class="description">
-
-    This editor was created for one purpose: to allow you to use GitHub style code
-    blocks (delimited by <code>```</code>) in your markdown, and then convert that
-    GitHub style markdown to Stack Overflow style markdown (where code blocks are
-    indicated by indenting every line by four spaces).
-
-  </p>
-
   <div class="wmd-panel">
     <div id="wmd-button-bar">
     </div>
 
     <textarea class="wmd-input" id="wmd-input">
-This is the *first* editor.
+Making the writing of Stack Overflow answers fun... with backticks!
 ------------------------------
 
-Just plain **Markdown**, except that the input is sanitized:
+Do you hate having to indent your Stack Overflow code with four spaces?
 
-<marquee>I'm the ghost from the past!</marquee>
+***I do!***
 
-and that it implements "fenced blockquotes" via a plugin:
+Instead, write your code with backticks instead! Like this:
 
 ```
-Do it like this:
-
-1. Have idea.
-2. ???
-3. Profit!
+[1, 2, 3].map { |x| x**2 }
+puts "the #{solution}"
 ```
+
+Then, when you click "Copy Markdown", we'll automatically transform your
+backtick-delimited codeblocks to space-indented codeblocks and copy that to your
+clipboard. Paste that into Stack Overflow, and you're done!
+
     </textarea>
   </div>
 
