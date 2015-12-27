@@ -62,7 +62,7 @@ clipboard. Paste that into Stack Overflow, and you're done!</textarea>
   <script>
     new Clipboard('#copy-to-clipboard', {
       text: function(_triggerBtnEl) {
-        var githubMarkdown = document.getElementById('wmd-input').innerHTML
+        var githubMarkdown = document.getElementById('wmd-input').value
         return githubToSO(githubMarkdown);
       }
     });
