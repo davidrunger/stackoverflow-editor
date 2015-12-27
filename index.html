@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/editor.css">
-  <script type="text/javascript" src="js/Markdown.Converter.js"></script>
-  <script type="text/javascript" src="js/Markdown.Sanitizer.js"></script>
-  <script type="text/javascript" src="js/Markdown.Editor.js"></script>
+  <script type="text/javascript" src="js/vendor/Markdown.Converter.js"></script>
+  <script type="text/javascript" src="js/vendor/Markdown.Sanitizer.js"></script>
+  <script type="text/javascript" src="js/vendor/Markdown.Editor.js"></script>
+  <script type="text/javascript" src="js/vendor/clipboard.min.js"></script>
   <script type="text/javascript" src="js/github-to-so.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
@@ -33,14 +34,18 @@ Instead, write your code with backticks instead! Like this:
 puts "the #{solution}"
 ```
 
-Then, when you click "Copy Markdown", we'll automatically transform your
+Then, when you click the button below, we'll automatically transform your
 backtick-delimited codeblocks to space-indented codeblocks and copy that to your
-clipboard. Paste that into Stack Overflow, and you're done!
-
-    </textarea>
+clipboard. Paste that into Stack Overflow, and you're done!</textarea>
   </div>
 
   <div id="wmd-preview" class="wmd-panel wmd-preview">
+  </div>
+
+  <div class="button-container">
+    <button id="copy-to-clipboard">
+      Copy to clipboard in Stack Overflow format
+    </button>
   </div>
 
   <script type="text/javascript">
@@ -55,6 +60,15 @@ clipboard. Paste that into Stack Overflow, and you're done!
 
       editor1.run();
     })();
+  </script>
+
+  <script>
+    new Clipboard('#copy-to-clipboard', {
+      text: function(_triggerBtnEl) {
+        var githubMarkdown = document.getElementById('wmd-input').innerHTML
+        return githubToSO(githubMarkdown);
+      }
+    });
   </script>
 
 </body>

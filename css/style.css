@@ -1,3 +1,19 @@
 body {
   margin-top: 20px;
 }
+
+.button-container {
+  text-align: center;
+}
+
+button#copy-to-clipboard {
+  padding: 7px 10px;
+  color: white;
+  background: #F48024;
+  border: none;
+  border-radius: 3px;
+}
+
+button#copy-to-clipboard:hover {
+  box-shadow: 1px 1px 2px gray;
+}
