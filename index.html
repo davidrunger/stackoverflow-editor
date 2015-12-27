@@ -10,6 +10,7 @@
   <script type="text/javascript" src="js/Markdown.Converter.js"></script>
   <script type="text/javascript" src="js/Markdown.Sanitizer.js"></script>
   <script type="text/javascript" src="js/Markdown.Editor.js"></script>
+  <script type="text/javascript" src="js/github-to-so.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
@@ -36,13 +37,13 @@ Just plain **Markdown**, except that the input is sanitized:
 
 and that it implements "fenced blockquotes" via a plugin:
 
-"""
+```
 Do it like this:
 
 1. Have idea.
 2. ???
 3. Profit!
-"""
+```
     </textarea>
   </div>
 
@@ -53,10 +54,8 @@ Do it like this:
     (function () {
       var converter = Markdown.getSanitizingConverter();
 
-      converter.hooks.chain("preBlockGamut", function (text, rbg) {
-        return text.replace(/^ {0,3}""".*\n((?:.*?\n)+?) {0,3}""" *$/gm, function (whole, inner) {
-          return "<code>" + rbg(inner) + "</code>\n";
-        });
+      converter.hooks.chain("preConversion", function (text, rbg) {
+        return githubToSO(text);
       });
 
       var editor1 = new Markdown.Editor(converter);
