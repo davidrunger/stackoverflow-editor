@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stack Overflow Editor</title>
   <link rel="stylesheet" href="css/editor.css">
+  <link rel="stylesheet" href="css/tooltip.css">
   <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="js/vendor/Markdown.Converter.js"></script>
   <script type="text/javascript" src="js/vendor/Markdown.Sanitizer.js"></script>
@@ -43,7 +44,7 @@ done!</textarea>
 
   <hr>
 
-  <button id="copy-to-clipboard">
+  <button id="copy-to-clipboard" title="Copied!" class="tooltip tooltip-hidden">
     Copy to clipboard in Stack Overflow format
     <img class="icon" src="images/clippy.png" alt="Copy to Clipboard icon">
   </button>
@@ -63,11 +64,26 @@ done!</textarea>
   </script>
 
   <script>
-    new Clipboard('#copy-to-clipboard', {
+    var clipboard = new Clipboard('#copy-to-clipboard', {
       text: function(_triggerBtnEl) {
         var githubMarkdown = document.getElementById('wmd-input').value
         return githubToSO(githubMarkdown);
       }
+    });
+
+    clipboard.on('success', function(event) {
+      var button = event.trigger;
+
+      button.classList.remove('tooltip-hidden');
+      button.classList.add('tooltip-visible');
+
+      setTimeout(function () {
+        button.classList.remove('tooltip-visible');
+        button.addEventListener('transitionend', function addHiddenClass() {
+          button.classList.add('tooltip-hidden');
+          button.removeEventListener('transitionend', addHiddenClass);
+        });
+      }, 1400);
     });
   </script>
 

@@ -1,0 +1,29 @@
+.tooltip {
+  display: inline;
+  position: relative;
+}
+
+.tooltip-hidden:after {
+  display: none;
+}
+
+.tooltip:after {
+  opacity: 0;
+  transition: opacity 0.8s;
+  background: rgba(0,0,0,.9);
+  border-radius: 5px;
+  bottom: 105%;
+  color: #fff;
+  content: attr(title);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 98;
+  width: 100px;
+}
+
+.tooltip-visible:after {
+  opacity: 1;
+  transition: opacity 0s;
+}
