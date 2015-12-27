@@ -6,5 +6,12 @@
     "test": "mocha ./test/index.js"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/davidrunger/stackoverflow-editor.git"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  }
 }
