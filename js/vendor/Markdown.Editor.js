@@ -2097,7 +2097,7 @@
                 chunk.selection = this.getString("codeexample");
             }
             else {
-                if (!/^```\n|\n```$/m.test(chunk.selection)) {
+                if (!/^```\n[\s\S]*\n```$/m.test(chunk.selection)) {
                     chunk.selection = chunk.selection.replace(/^/, "```\n");
                     chunk.selection = chunk.selection.replace(/$/, "\n```");
                 }
