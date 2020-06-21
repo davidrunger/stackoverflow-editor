@@ -15,7 +15,7 @@ With the click of a button, your GitHub-style markdown will be
 automatically converted to Stack Overflow-style markdown and copied to
 your clipboard. Paste it into Stack Overflow, and you're done!
 
-[editor]: http://www.davidrunger.com/stackoverflow-editor
+[editor]: https://davidrunger.github.io/stackoverflow-editor/
 
 ### License
 
